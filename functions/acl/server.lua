@@ -2,8 +2,10 @@ local function allowAce(allow)
 	return allow == false and 'deny' or 'allow'
 end
 
+zlib.acl = {}
+
 -- Adds the ace to the principal.
-function zlib.addAce(principal, ace, allow)
+function zlib.acl.addAce(principal, ace, allow)
 	if type(principal) == 'number' then
 		principal = 'player.'..principal
 	end
@@ -12,7 +14,7 @@ function zlib.addAce(principal, ace, allow)
 end
 
 -- Removes the ace from the principal.
-function zlib.removeAce(principal, ace, allow)
+function zlib.acl.removeAce(principal, ace, allow)
 	if type(principal) == 'number' then
 		principal = 'player.'..principal
 	end
@@ -21,7 +23,7 @@ function zlib.removeAce(principal, ace, allow)
 end
 
 -- Adds the child principal to the parent principal.
-function zlib.addPrincipal(child, parent)
+function zlib.acl.addPrincipal(child, parent)
 	if type(child) == 'number' then
 		child = 'player.'..child
 	end
@@ -30,7 +32,7 @@ function zlib.addPrincipal(child, parent)
 end
 
 -- Removes the child principal from the parent principal.
-function zlib.removePrincipal(child, parent)
+function zlib.acl.removePrincipal(child, parent)
 	if type(child) == 'number' then
 		child = 'player.'..child
 	end
@@ -41,3 +43,4 @@ end
 zlib.callback.register('zul:checkPlayerAce', function(source, command)
     return IsPlayerAceAllowed(source, command)
 end)
+
