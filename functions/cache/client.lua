@@ -57,9 +57,9 @@ local function getcache(key)
 end
 
 function zlib.cache(...)
-    args={...}
-    nargin=#args
-    if nargin==1 then 
+    local args={...}
+    local nargin=#args
+    if nargin==1 then
         getcache(args[1])
     elseif nargin==2 then
         setcache(...)

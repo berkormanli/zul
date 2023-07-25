@@ -1,7 +1,7 @@
 
 
 ---@param template table
----@return table
+---@return fun(table): table
 function zlib.spread(template)
     local result = {}
     for key, value in pairs(template) do
