@@ -1,10 +1,10 @@
 
 
----@param template table
+---@param self table
 ---@return fun(table): table
-function zlib.spread(template)
+function zlib.spread(self)
     local result = {}
-    for key, value in pairs(template) do
+    for key, value in pairs(self) do
         result[key] = value
     end
 
@@ -30,6 +30,12 @@ local default_player = {
 }
 
 local player1 = zlib.spread(default_player) {
+    name = 'Alice'
+}
+
+OR
+
+local player2 = default_player:spread(){
     name = 'Alice'
 }
 

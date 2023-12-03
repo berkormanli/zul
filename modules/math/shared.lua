@@ -1,4 +1,4 @@
----@class oxmath : mathlib
+---@class zulmath : mathlib
 zlib.math = math
 
 local function parseNumber(input, min, max, round)
@@ -97,6 +97,14 @@ end
 function math.groupdigits(number, seperator) -- credit http://richard.warburton.it
     local left,num,right = string.match(number,'^([^%d]*%d)(%d*)(.-)$')
     return left..(num:reverse():gsub('(%d%d%d)','%1' .. (seperator or ',')):reverse())..right
+end
+
+function math.round(num, decimal_places)
+    return tonumber(string.format("%." .. (decimal_places or 0) .. "f", num))
+end
+
+function math.clamp(value, lower, upper)
+    return math.min(math.max(value, lower), upper)
 end
 
 return zlib.math

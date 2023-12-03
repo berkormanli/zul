@@ -27,7 +27,7 @@ local context = IsDuplicityVersion() and 'server' or 'client'
 function noop() end
 
 local function loadModule(self, module)
-	local dir = ('imports/%s'):format(module)
+	local dir = ('modules/%s'):format(module)
 	local chunk = LoadResourceFile(zul, ('%s/%s.lua'):format(dir, context))
 	local shared = LoadResourceFile(zul, ('%s/shared.lua'):format(dir))
 

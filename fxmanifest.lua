@@ -21,8 +21,8 @@ dependencies {
 
 files {
     'init.lua',
-    'imports/**/client.lua',
-    'imports/**/shared.lua',
+    'modules/**/client.lua',
+    'modules/**/shared.lua',
     --'web/build/index.html',
     --'web/build/**/*',
 	'locales/*.json',
@@ -31,22 +31,23 @@ files {
 shared_script 'resource/init.lua'
 
 shared_scripts {
-	'imports/locale/shared.lua',
-    'resource/**/shared.lua',
+	'modules/locale/shared.lua',
+    'functions/dataStructures/sh_*.lua',
+    'functions/**/shared.lua',
     -- 'resource/**/shared/*.lua'
 }
 
 client_scripts {
-	'imports/callback/client.lua',
-	'imports/requestModel/client.lua',
-	'imports/requestAnimDict/client.lua',
-	'imports/addKeybind/client.lua',
-    'resource/**/client.lua',
-    'resource/**/client/*.lua'
+	'modules/callback/client.lua',
+	'modules/requestModel/client.lua',
+	'modules/requestAnimDict/client.lua',
+	'modules/addKeybind/client.lua',
+    'functions/**/client.lua',
+    'functions/**/client/*.lua'
 }
 
 server_scripts {
-	'imports/callback/server.lua',
-    'resource/**/server.lua',
-    'resource/**/server/*.lua',
+	'modules/callback/server.lua',
+    'functions/**/server.lua',
+    'functions/**/server/*.lua',
 }
